@@ -12,7 +12,7 @@ int main(){
 	
 	puts(" === INSIRA SEUS DADOS DE LOGIN ===\n");
 	do{
-		printf("USU¡RIO\n");
+		printf("USU√ÅRIO\n");
 		scanf("%s",&login);
 		printf("\nSENHA\n");
 		scanf("%s",&senha);
@@ -27,7 +27,7 @@ int main(){
 		}
 		
 		if(contador == 3){
-		printf("USU¡RIO OU SENHA INCORRETOS. \nTENTE NOVAMENTE MAIS TARDE...");
+		printf("USU√ÅRIO OU SENHA INCORRETOS. \nTENTE NOVAMENTE MAIS TARDE...");
 		break;
 		}	
 		
@@ -37,7 +37,7 @@ int main(){
 	
 	system("cls || clear");
 	printf("BANCO DO BRASIL \tSALDO R$: %.2f\n", operacaoSalario);
-	printf("\nDIGITE A OP«√O DESEJADA: \n");
+	printf("\nDIGITE A OP√á√ÉO DESEJADA: \n");
 	printf("1) ADICIONAR VALOR \n2) RETIRAR VALOR \n3) ENCERRAR PROGRAMA \nDIGITE AQUI: ");
 	scanf("%d",&opcoes);
 	
@@ -56,7 +56,7 @@ int main(){
 				system("cls || clear");
 				
 				if(strcmp(senha,senhaRecebe) != 0){
-					printf("SENHA INV¡LIDA, TENTE NOVAMENTE");
+					printf("SENHA INV√ÅLIDA, TENTE NOVAMENTE");
 				}
 				
 				}while(strcmp(senha,senhaRecebe) != 0);
@@ -66,6 +66,12 @@ int main(){
 				printf("DIGITE A QUANTIDADE QUE DESEJA RETIRAR: \nR$");
 				scanf("%f",&salarioInserido);
 				
+				if(operacaoSalario == 0 && salarioInserido > operacaoSalario){
+					printf("\nSALDO INSUFICIENTE...");
+					sleep(5);
+					break;
+				}
+				
 				operacaoSalario = operacaoSalario - salarioInserido; 
 				
 				printf("DIGITE SUA SENHA: ");
@@ -74,7 +80,7 @@ int main(){
 				system("cls || clear");
 				
 				if(strcmp(senha,senhaRecebe) != 0){
-					printf("SENHA INV¡LIDA, TENTE NOVAMENTE");
+					printf("SENHA INV√ÅLIDA, TENTE NOVAMENTE");
 				}
 				
 				}while(strcmp(senha,senhaRecebe) != 0);
@@ -85,7 +91,7 @@ int main(){
 			
 		break;
 		default: system("cls || clear");
-					printf("INSIRA UMA OP«√O V¡LIDA");
+					printf("INSIRA UMA OP√á√ÉO V√ÅLIDA");
 		break;	
 	}
 	
