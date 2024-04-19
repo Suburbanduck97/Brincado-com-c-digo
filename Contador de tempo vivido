@@ -1,0 +1,68 @@
+import os
+
+os.system("cls || clear")
+
+def Switch_Case(mesNascimento):
+    if mesNascimento == 1:
+        print("MÊS DE NASCIMENTO: JANEIRO")
+    elif mesNascimento == 2:
+        print("MÊS DE NASCIMENTO: FEVEREIRO")
+    elif mesNascimento == 3:
+        print("MÊS DE NASCIMENTO: MARÇO")
+    elif mesNascimento == 4:
+        print("MÊS DE NASCIMENTO: ABRIL")
+    elif mesNascimento == 5:
+        print("MÊS DE NASCIMENTO: MAIO")
+    elif mesNascimento == 6:
+        print("MÊS DE NASCIMENTO: JUNHO")
+    elif mesNascimento == 7:
+        print("MÊS DE NASCIMENTO: JULHO")
+    elif mesNascimento == 8:
+        print("MÊS DE NASCIMENTO: AGOSTO")
+    elif mesNascimento == 9:
+        print("MÊS DE NASCIMENTO: SETEMBRO")
+    elif mesNascimento == 10:
+        print("MÊS DE NASCIMENTO: OUTUBRO")
+    elif mesNascimento == 11:
+        print("MÊS DE NASCIMENTO: NOVEMBRO")
+    elif mesNascimento == 12:
+        print("MÊS DE NASCIMENTO: DEZEMBRO") 
+
+
+
+anoDeNascimento = int
+mesNascimento = 0
+anoAtual = 2024
+diasDoAno = 365
+diasDoAnoBi = 0
+mesesDoAno = 12
+diasVividosTotais = 0
+
+
+diaNascimento = int(input("DIGITE O DIA DO SEU NASCIMENTO: "))
+while mesNascimento < 1 or mesNascimento > 12:
+    mesNascimento = int(input("DIGITE O MÊS DO SEU NASCIMENTO: "))
+anoDeNascimento = int(input("DIGITE O ANO QUE VOCÊ NASCEU: "))
+print("\n")
+
+#Informações Complementares
+Switch_Case(mesNascimento)
+
+#Cálculo do Sistema
+anos = 0
+anosBissextos = 0
+for anos in range(anoDeNascimento, anoAtual+1):
+    if anos % 2 == 0:
+        anosBissextos+1
+
+anosVividos = anoAtual - anoDeNascimento
+diasVividos = anosVividos * diasDoAno
+diasDoAnoBi = anosBissextos * 366
+diasVividosTotais = diasVividos + diasDoAnoBi
+mesesVividos = mesesDoAno * anosVividos
+
+print(f"\nVOCÊ TEM {anosVividos} ANOS, {mesesVividos} MESES E {diasVividosTotais} DIAS VIVIDOS")
+
+
+print("BY: ERICSSON SANTOS")
+
