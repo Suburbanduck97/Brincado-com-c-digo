@@ -1,0 +1,255 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
+
+int main(){
+    float valorDaAposta = 0.0, somaGanho = 0.0, retirada = 0.0, multiplica = 0.0, retiradaDoValor = 0.0, deposito = 0.0;
+    int opcoes, i, inicios, numeroSorteado1, numeroSorteado2, numeroSorteado3,numeroSorteado4;
+    char resposta;
+    
+    setlocale(LC_ALL,"portuguese");
+    
+	//Menu do Game:
+    printf("=== BEM VINDO AO GANHO DA SORTE ===\n");
+     printf("\n=== ATENÇÃO LEIA ===\n");
+      printf("\nInstruções: \n1 - Desposite um valor de no mínimo R$0,20 \n2 - Permitido para maiores de 18 anos\n");
+       printf("3 - Caso consiga um número par sua aposta multiplica em X2\n");
+      printf("4 - Caso consiga dois números pares sua aposta multiplica em X4 \n");
+     printf("5 - Caso consiga tres números pares sua aposta multiplica em X6\n");
+    printf("6 - Caso consiga quatro números pares sua aposta multiplica em X10\n");
+     sleep(3);
+    
+    system("cls || clear");
+    
+    for(i=1;i>0;i++){
+        do{
+			printf("=== GANHO DA SORTE ===\n");
+        	printf("\nSaldo: %.2f\n",somaGanho);
+        	printf("\nSELECIONE A OPÇÃO");
+        	printf("\n1) Para um Números \n2) Para Dois Números \n3) Para 3 Númeross \n4) Para 4 Números \n5) Para Depositar o Valor \n6) Para Encerrar o jogo");
+        	printf("\n\nDIGITE A OPÇÃO: ");
+        	scanf("%d",&opcoes);
+        	system("cls || clear");
+    		
+            switch(opcoes){
+                case 1:    
+					do{	
+						printf("Aperte 1 para sortear ou 2 para voltar: ");
+                    	scanf("%d",&inicios);
+						
+						system("cls || clear");
+						
+						printf("Saldo: %.2f\n\n",somaGanho);
+                        printf("Insira o valor para Aposta: ");
+                        scanf("%f",&valorDaAposta);
+                        
+                        
+                        
+                        //Sorteio aleatório de números
+							if(inicios == 1){    
+                            	puts("Sorteando...");
+                        		sleep(3);	
+								numeroSorteado1 = rand() % 100;
+                            	printf("\nNÚMERO SORTEADO: %d", numeroSorteado1);
+                        	}
+               				
+						//Ganho do jogo
+                    		if(numeroSorteado1 % 2 == 0){
+                    			fflush(stdin);
+								multiplica = valorDaAposta * 2;
+								printf("\nVALOR MULTIPLICADO!!!\n");
+								somaGanho += multiplica;
+							}else{
+								fflush(stdin); 
+								somaGanho -= valorDaAposta;
+								printf("\nVALOR PERDIDO!!");
+							}
+							
+						 printf("\n\nDeseja jogar novamente? (S) PARA SIM OU (N) PARA NÃO \nRESPOSTA: ");
+                        setbuf(stdin,0);
+                        scanf("%c",&resposta);
+                        resposta = toupper(resposta);
+                        system("cls || clear");
+							
+                    }while(resposta == 'S' && inicios == 1);
+                break;    
+                case 2:
+                	do{	
+						printf("Aperte 1 para sortear ou 2 para voltar: ");
+                    	scanf("%d",&inicios);
+						
+						system("cls || clear");
+						
+						printf("Saldo: %.2f\n\n",somaGanho);
+						printf("Insira o valor para Aposta: ");
+                        scanf("%f",&valorDaAposta);
+                        
+                        
+                        //Sorteio aleatório de números
+							if(inicios == 1){    
+                            	puts("Sorteando...");
+                        		sleep(3);	
+								numeroSorteado1 = rand() % 100;
+								numeroSorteado2 = rand() % 100;
+								
+                            	printf("\n1º NÚMERO SORTEADO: %d", numeroSorteado1);
+                            	printf("\n2º NÚMERO SORTEADO: %d", numeroSorteado2);
+                        	}
+                   	
+						//Ganho do jogo
+                    		if(numeroSorteado1 % 2 == 0 && numeroSorteado2 == 0){
+                    			fflush(stdin);
+								multiplica = valorDaAposta * 4;
+								printf("\nVALOR MULTIPLICADO!!!\n");
+								somaGanho = multiplica;
+							}else{
+								fflush(stdin);
+								retirada = somaGanho - valorDaAposta;
+								printf("\nVALOR PERDIDO!!");
+								somaGanho = somaGanho - retirada;
+							}
+							
+						 printf("\n\nDeseja jogar novamente? (S) PARA SIM OU (N) PARA NÃO \nRESPOSTA: ");
+                        setbuf(stdin,0);
+                        scanf("%c",&resposta);
+                        resposta = toupper(resposta);
+                        system("cls || clear");
+							
+                    }while(resposta == 'S' && inicios == 1);
+                break;
+                case 3:
+                	do{	
+						printf("Aperte 1 para sortear ou 2 para voltar: ");
+                    	scanf("%d",&inicios);
+						
+						system("cls || clear");
+						
+						printf("Saldo: %.2f\n\n",somaGanho);
+						printf("Insira o valor para Aposta: ");
+                        scanf("%f",&valorDaAposta);
+                        
+                        //Sorteio aleatório de números
+							if(inicios == 1){    
+                            	puts("Sorteando...");
+                        		sleep(3);	
+								numeroSorteado1 = rand() % 100;
+								numeroSorteado2 = rand() % 100;
+								numeroSorteado3 = rand() % 100;
+								
+                            	printf("\n1º NÚMERO SORTEADO: %d", numeroSorteado1);
+                            	printf("\n2º NÚMERO SORTEADO: %d", numeroSorteado2);
+                            	printf("\n3º NÚMERO SORTEADO: %d", numeroSorteado3);
+                        	}
+                
+						//Ganho do jogo
+                    		if((numeroSorteado1 % 2 == 0) && (numeroSorteado2 % 2 == 0) && (numeroSorteado3 % 2 == 0) && (numeroSorteado3 % 2 == 0)){
+                    			setbuf(stdin,0);
+                    			fflush(stdin);
+								multiplica = valorDaAposta * 6;
+								printf("\nVALOR MULTIPLICADO!!!\n");
+								somaGanho += multiplica;
+							}else{
+								fflush(stdin);
+								somaGanho -= valorDaAposta;
+								printf("\nVALOR PERDIDO!!");
+							}
+							
+						 printf("\n\nDeseja jogar novamente? (S) PARA SIM OU (N) PARA NÃO \nRESPOSTA: ");
+                        setbuf(stdin,0);
+                        scanf("%c",&resposta);
+                        resposta = toupper(resposta);
+                        system("cls || clear");
+							
+                    }while(resposta == 'S' && inicios == 1);
+                break;
+                case 4:
+                	do{	
+						printf("Aperte 1 para sortear ou 2 para voltar: ");
+                    	scanf("%d",&inicios);
+						
+						system("cls || clear");
+						
+						printf("Saldo: %.2f\n\n",somaGanho);
+						printf("Insira o valor para Aposta: ");
+                        scanf("%f",&valorDaAposta);
+                        
+						//Sorteio aleatório de números
+							if(inicios == 1){    
+                            	puts("Sorteando...");
+                        		sleep(3);		
+									numeroSorteado1 = rand() % 100;
+									numeroSorteado2 = rand() % 100;
+									numeroSorteado3 = rand() % 100;
+									numeroSorteado4 = rand() % 100;
+								
+                            		printf("\n1º NÚMERO SORTEADO: %d", numeroSorteado1);
+                            		printf("\n2º NÚMERO SORTEADO: %d", numeroSorteado2);
+                            		printf("\n3º NÚMERO SORTEADO: %d", numeroSorteado3);
+                            		printf("\n4º NÚMERO SORTEADO: %d", numeroSorteado4);
+                            	
+                        	}
+                        	
+						//Ganho do jogo
+                    		if((numeroSorteado1 % 2 == 0) && (numeroSorteado2 % 2 == 0) && (numeroSorteado3 % 2 == 0) && (numeroSorteado3 % 2 == 0) && (numeroSorteado4 % 2 == 0)){
+                    			fflush(stdin);
+								multiplica = valorDaAposta * 10;
+								printf("\nVALOR MULTIPLICADO!!!\n");
+								somaGanho += multiplica;
+							}else{
+								fflush(stdin);
+								somaGanho -= valorDaAposta;
+								printf("\nVALOR PERDIDO!!");
+								
+							}
+							
+						printf("\n\nDeseja jogar novamente? (S) PARA SIM OU (N) PARA NÃO \nRESPOSTA: ");
+                        setbuf(stdin,0);
+                        scanf("%c",&resposta);
+                        resposta = toupper(resposta);
+                        system("cls || clear");
+							
+                    }while(resposta == 'S' && inicios == 1);
+                break;
+                case 5:
+                	do{
+						puts("=== DEPÓSITO ===");
+						puts("\nValor minímo de R$0.20,00");
+						puts("\nValor máximo de R$200.000,00");
+						
+						printf("\nSALDO: R$%.2f",somaGanho);
+						
+						fflush(stdin);
+						printf("\nDigite a quantidade que deseja inserir\nR$");
+						scanf("%f",&deposito);
+				
+						somaGanho += deposito;
+				
+						puts("\n\nDepositando...");
+						sleep(3);
+						system("cls || clear");
+						break;
+						
+					
+					}while(valorDaAposta < 0.20 || valorDaAposta > 200000.0);
+                
+				break;
+                case 6:
+                break;
+                default:
+                	puts("\n\nOpção Inválida...");
+                break;
+            }
+    	}while((opcoes > 0 || opcoes > 6) || (somaGanho == 0 && opcoes != 5));
+    }
+
+return 0;
+    
+}
+
+
+//Criado por Ericsson Dos Santos, Aluno do Senai no curso de Análise e Desenvolvimento de Sistemas.
+//Criado no dia 15 de Abril de 2024.
+//Game inlustrativo.
