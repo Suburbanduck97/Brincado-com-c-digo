@@ -27,42 +27,33 @@ def Switch_Case(mesNascimento):
         print("MÊS DE NASCIMENTO: NOVEMBRO")
     elif mesNascimento == 12:
         print("MÊS DE NASCIMENTO: DEZEMBRO") 
-
-
-
 anoDeNascimento = int
+nome = str
 mesNascimento = 0
 anoAtual = 2024
 diasDoAno = 365
 diasDoAnoBi = 0
 mesesDoAno = 12
 diasVividosTotais = 0
-
-
+nome = input("DIGITE UM NOME: ")
 diaNascimento = int(input("DIGITE O DIA DO SEU NASCIMENTO: "))
 while mesNascimento < 1 or mesNascimento > 12:
     mesNascimento = int(input("DIGITE O MÊS DO SEU NASCIMENTO: "))
 anoDeNascimento = int(input("DIGITE O ANO QUE VOCÊ NASCEU: "))
 print("\n")
-
 #Informações Complementares
 Switch_Case(mesNascimento)
-
 #Cálculo do Sistema
 anos = 0
 anosBissextos = 0
 for anos in range(anoDeNascimento, anoAtual+1):
     if anos % 2 == 0:
         anosBissextos+1
-
 anosVividos = anoAtual - anoDeNascimento
 diasVividos = anosVividos * diasDoAno
 diasDoAnoBi = anosBissextos * 366
 diasVividosTotais = diasVividos + diasDoAnoBi
 mesesVividos = mesesDoAno * anosVividos
-
+print(f"Nome: {nome}")
 print(f"\nVOCÊ TEM {anosVividos} ANOS, {mesesVividos} MESES E {diasVividosTotais} DIAS VIVIDOS")
-
-
 print("BY: ERICSSON SANTOS")
-
